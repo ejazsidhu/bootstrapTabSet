@@ -1,0 +1,35 @@
+//this is tab set expamle for angular
+
+
+clickedNow(data,title,tabName){
+    this.title=title;
+    // alert(data,title)
+    this.tabName=tabName;
+
+  }
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" [class.active]="(tabName=='home')" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true" (click)="clickedNow(1,'DE summary','home');">DE summary'</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" [class.active]="(tabName=='profile')" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false" (click)="clickedNow(2,'DSR summary','profile');">DSR summary</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="contact-tab" [class.active]="(tabName=='contact')" data-toggle="tab" role="tab" aria-controls="contact" aria-selected="false" (click)="clickedNow(3,'DSR Block summary','contact');">DSR Block summary</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div *ngIf="(tabName=='home')" class="tab-pane fade show" [class.active]="(tabName=='home')" id="home" role="tabpanel" aria-labelledby="home-tab">
+        1
+        <dummy-table></dummy-table>
+    </div>
+    <div *ngIf="(tabName=='profile')" class="tab-pane fade show" [class.active]="(tabName=='profile')" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        2
+        <dummy-table></dummy-table> 2
+    </div>
+    <div *ngIf="(tabName=='contact')" class="tab-pane fade show" [class.active]="(tabName=='contact')" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        3
+        <dummy-table></dummy-table> 3
+    </div>
+</div>
